@@ -1,7 +1,7 @@
 import sys
 from PySide6.QtWidgets import QApplication, QMainWindow, QPushButton, QLineEdit, QLabel
 
-class MinhaJanela(QMainWindow):
+class MainJanela(QMainWindow):
     def __init__(self):
         super().__init__()
 
@@ -9,7 +9,7 @@ class MinhaJanela(QMainWindow):
 
     def initUI(self):
         self.setWindowTitle('My App with Pyside6')
-        self.setGeometry(100, 100, 400, 200)
+        self.setGeometry(100, 100, 400, 400)
 
         self.label = QLabel('Digite seu nome:', self)
         self.label.move(20, 20)
@@ -20,12 +20,12 @@ class MinhaJanela(QMainWindow):
 
         self.button = QPushButton('confirmar', self)
         self.button.move(150, 60)
-        self.button.clicked.connect(self.saudacao)
+        self.button.clicked.connect(self.lambda1)
 
         self.result_label = QLabel('', self)
         self.result_label.move(150, 100)
 
-    def saudacao(self):
+    def lambda1(self):
         nome = self.textbox.text()
         if nome:
             mensagem = f"Ola, {nome}!"
@@ -35,6 +35,6 @@ class MinhaJanela(QMainWindow):
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-    janela = MinhaJanela()
+    janela = MainJanela()
     janela.show()
     sys.exit(app.exec_())
